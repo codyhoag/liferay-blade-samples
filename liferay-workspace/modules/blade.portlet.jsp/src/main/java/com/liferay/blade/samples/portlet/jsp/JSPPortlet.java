@@ -23,7 +23,18 @@ import javax.portlet.Portlet;
 import org.osgi.service.component.annotations.Component;
 
 /**
- * @author Liferay
+ * Sample portlet using OSGi Declarative Services.
+ * This portlet just shows the message "Hello World!". The properties for the Component
+ * can be looked up in http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd for the 
+ * JSR-286 derived javax.portlet.* properties and http://www.liferay.com/dtd/liferay-portlet-app_7_0_0.dtd
+ * and http://www.liferay.com/dtd/liferay-display_7_0_0.dtd for the Liferay-specific 
+ * extensions to the JSR-286 standard. Map the xml structure to the properties names
+ * similar to what you see in this sample. Authoritative documentation for the 
+ * individual properties can be found in the comments of the linked DTDs.
+ *
+ * Multiple values, as seen here in javax.portlet.security-role-ref, are separated by comma.
+ *
+ * @author Liferay, Olaf Kock
  */
 @Component(
 	immediate = true,
@@ -40,5 +51,8 @@ import org.osgi.service.component.annotations.Component;
 	},
 	service = Portlet.class
 )
+// Liferay's MVC portlet allows to initialize the view of the portlet in its properties - check
+// javax.portlet.init-param.view-template for the default view template. You'll find the JSPs
+// in the same demo portlet module in the resources folder.
 public class JSPPortlet extends MVCPortlet {
 }
