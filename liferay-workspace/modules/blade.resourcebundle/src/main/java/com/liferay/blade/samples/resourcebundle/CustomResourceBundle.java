@@ -24,13 +24,26 @@ import java.util.ResourceBundle;
 import org.osgi.service.component.annotations.Component;
 
 /**
- * @author Liferay
+ * Sample to override Liferay's core localization with new translations. Note that
+ * this applies only to those localizations contained in portal-impl.jar, not to
+ * any modules (unless the modules specifically load their translations from Liferay's
+ * core.
+ *
+ * @see CustomResourceBundleLoader in this sample project for changing module's translations.
+ * @author Liferay, Olaf Kock
  */
+ 
 @Component(
-	immediate = true, property = {"language.id=en_US"},
+	immediate = true, 
+	property = {"language.id=en_US"},
 	service = ResourceBundle.class
 )
 public class CustomResourceBundle extends ResourceBundle {
+
+	// Typically no changes required in this class. Note that the default implementation
+	// utilizes Liferay's default encoding for Language.properties: UTF-8. You might need
+	// to convince your IDE to accept properties files as UTF-8 or change the encoding
+	// here.
 
 	@Override
 	public Enumeration<String> getKeys() {
