@@ -5,4 +5,4 @@ Liferay Portal's default Control Menu.
 
 For more details on this sample, see the
 [Control Menu Entry](https://dev.liferay.com/develop/reference/-/knowledge_base/7-0/control-menu-entry)
-article.
+article on Liferay's Developer Network.
